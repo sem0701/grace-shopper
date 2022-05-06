@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { me } from '../../store';
-import Confirmation from './Confirmation';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { me } from "../../store";
+import Confirmation from "./Confirmation";
 import {
   addCart,
   decreaseQuantity,
@@ -9,7 +9,7 @@ import {
   fulfillCart,
   increaseQuantity,
   removeCart,
-} from '../../store/order';
+} from "../../store/order";
 
 const Cart = () => {
   const user = useSelector((state) => state.auth);
@@ -89,7 +89,7 @@ const Cart = () => {
               })
             )}
             <h2>
-              Total Price:{' '}
+              Total:{" "}
               {order.products.reduce((acc, product) => {
                 return (acc += product.price * product.orderProduct.quantity);
               }, 0)}
