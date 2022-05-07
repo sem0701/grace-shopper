@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../store";
+import { Input } from "@chakra-ui/react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 /**
  * COMPONENT
@@ -24,16 +26,18 @@ const AuthForm = ({ name, displayName }) => {
           <label htmlFor="username">
             <small>Username</small>
           </label>
-          <input name="username" type="text" />
+          <Input name="username" size="sm" type="text" />
         </div>
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <Input name="password" size="sm" type="password" />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <Button type="submit" colorScheme="teal">
+            {displayName}
+          </Button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>

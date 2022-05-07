@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { setProducts } from '../../store/products';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { setProducts } from "../../store/products";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -16,27 +17,20 @@ const AllProducts = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-      }}
-    >
+    <div>
       {products === undefined || products === []
-        ? 'No food'
+        ? "No food"
         : products.map((product) => {
             return (
-              <div class="allproductcontainer">
-                <div class="square">
-                  <img src={product.imageURL} class="mask" />
-                  <div class="foodtitle">{product.name}</div>
+              <div className="allproductcontainer" key={product.id}>
+                <div className="square">
+                  <img src={product.imageURL} className="mask" />
+                  <div className="foodtitle">{product.name}</div>
                   <p>{product.description}</p>
 
                   <div>
-                    <Link to={`/products/${product.id}`} class="button">
-                      View Meal
+                    <Link to={`/products/${product.id}`}>
+                      <Button colorScheme="blue">View Meal</Button>
                     </Link>
                   </div>
                 </div>

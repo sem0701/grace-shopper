@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCart } from '../store/order';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../store/order";
 
 /**
  * COMPONENT
@@ -18,9 +18,9 @@ const Home = (props) => {
   }, []);
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div>
       <h3>Welcome, {username}</h3>
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <img
           className="home-img"
           src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
