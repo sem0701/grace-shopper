@@ -10,14 +10,14 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <Heading className="navbar__header">Virtual Kitchen</Heading>
-      <div className="navbar__links">
-        {isLoggedIn ? (
-          <>
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home" className="navbar__links-item">
-              Home
-            </Link>
+      <div className="navbar__header">
+        <Heading size="lg">Foodie</Heading>
+      </div>
+
+      {isLoggedIn ? (
+        <>
+          {/* The navbar will show these links after you log in */}
+          <div className="navbar__links-center">
             <Link to="/team" className="navbar__links-item">
               Team
             </Link>
@@ -26,6 +26,12 @@ const Navbar = () => {
             </Link>
             <Link to="/cart" className="navbar__links-item">
               Cart
+            </Link>
+          </div>
+
+          <div className="navbar__links-right">
+            <Link to="/home" className="navbar__links-item">
+              Home
             </Link>
             <a
               href="#"
@@ -34,16 +40,12 @@ const Navbar = () => {
             >
               Logout
             </a>
-          </>
-        ) : (
-          <>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login" className="navbar__links-item">
-              Login
-            </Link>
-            <Link to="/signup" className="navbar__links-item">
-              Sign Up
-            </Link>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* The navbar will show these links before you log in */}
+          <div className="navbar__links-center">
             <Link to="/team" className="navbar__links-item">
               Team
             </Link>
@@ -53,9 +55,18 @@ const Navbar = () => {
             <Link to="/cart" className="navbar__links-item">
               Cart
             </Link>
-          </>
-        )}
-      </div>
+          </div>
+          <div className="navbar__links-right">
+            <Link to="/login" className="navbar__links-item">
+              Login
+            </Link>
+            /
+            <Link to="/signup" className="navbar__links-item">
+              Sign Up
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };

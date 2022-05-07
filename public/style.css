@@ -1,18 +1,45 @@
+/* navbar */
 .navbar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 24px;
-  gap: 16px;
   background-color: aliceblue;
   width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 80px;
+  position: fixed;
 }
 
 .navbar__header {
+  padding: 24px;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
 }
 
 .navbar__links {
   display: flex;
   gap: 32px;
+}
+
+.navbar__links-center {
+  display: flex;
+  gap: 48px;
+}
+.navbar__links-item {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar__links-right {
+  padding: 24px;
+  border-left: 1px solid #ccc;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
 }
