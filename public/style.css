@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15vw;
+  width: 180px;
 }
 
 .navbar__links {
@@ -42,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15vw;
+  width: 180px;
 }
 
 /* content */

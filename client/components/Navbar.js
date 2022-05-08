@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../store";
+import { logout, me } from "../store";
 import { Heading } from "@chakra-ui/react";
+import { fetchCart } from "../store/order";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.id);
   const dispatch = useDispatch();
+  const order = useSelector((state) => state.order) || { products: [] };
+  const user = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(me());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchCart(user.id));
+  }, [user]);
+
+  let cartCount = 0;
+
+  if (order.products) {
+    cartCount = order.products.reduce((accum, element) => {
+      return accum + element.orderProduct.quantity;
+    }, 0);
+  }
+  console.log(cartCount);
+
+  if (!order.products) return null;
 
   return (
     <div className="navbar">
       <div className="navbar__header">
-        <Heading size="lg">Foodie</Heading>
+        <Link to="/home" className="navbar__links-item">
+          <Heading size="lg">Foodie</Heading>
+        </Link>
       </div>
 
       {isLoggedIn ? (
@@ -30,9 +54,6 @@ const Navbar = () => {
           </div>
 
           <div className="navbar__links-right">
-            <Link to="/home" className="navbar__links-item">
-              Home
-            </Link>
             <a
               href="#"
               className="navbar__links-item"
@@ -53,7 +74,7 @@ const Navbar = () => {
               Products
             </Link>
             <Link to="/cart" className="navbar__links-item">
-              Cart
+              {order.products.length > 0 ? `Cart(${cartCount})` : "Cart"}
             </Link>
           </div>
           <div className="navbar__links-right">

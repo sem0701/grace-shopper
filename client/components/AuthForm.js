@@ -27,7 +27,7 @@ const AuthForm = ({ name, displayName }) => {
       <div className="auth__form-container">
         <div className="auth__form">
           <div className="auth__form-title">
-            <Heading>{`${displayName}:`}</Heading>
+            <Heading>{`${displayName}`}</Heading>
           </div>
 
           <form

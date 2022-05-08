@@ -35,7 +35,7 @@ const About = () => {
         <section className="about-card">
           <div className="image-div">
             <img
-              Name="about-image1"
+              className="about-image1"
               src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"
               alt="Veysel"
             />
