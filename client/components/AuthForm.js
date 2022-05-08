@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authenticate } from "../store";
 import { Input } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button, ButtonGroup, Heading } from "@chakra-ui/react";
 
 /**
  * COMPONENT
@@ -20,27 +20,42 @@ const AuthForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <Input name="username" size="sm" type="text" />
+    <div className="auth">
+      <div className="auth__pic">
+        <img src="auth-pic.avif" alt="auth_pic" />
+      </div>
+      <div className="auth__form-container">
+        <div className="auth__form">
+          <div className="auth__form-title">
+            <Heading>{`${displayName}:`}</Heading>
+          </div>
+
+          <form
+            className="auth__form-content"
+            onSubmit={handleSubmit}
+            name={name}
+          >
+            <div>
+              <label htmlFor="username">
+                <small>Username</small>
+              </label>
+              <Input name="username" size="lg" type="text" />
+            </div>
+            <div>
+              <label htmlFor="password">
+                <small>Password</small>
+              </label>
+              <Input name="password" size="lg" type="password" />
+            </div>
+            <div>
+              <Button type="submit" colorScheme="teal">
+                {displayName}
+              </Button>
+            </div>
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
         </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <Input name="password" size="sm" type="password" />
-        </div>
-        <div>
-          <Button type="submit" colorScheme="teal">
-            {displayName}
-          </Button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+      </div>
     </div>
   );
 };

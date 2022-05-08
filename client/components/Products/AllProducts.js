@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { setProducts } from "../../store/products";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Link, useHistory, useNavigate } from "react-router-dom";
+import { Button, ButtonGroup, Text } from "@chakra-ui/react";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const products =
     useSelector((state) => {
@@ -16,24 +17,27 @@ const AllProducts = () => {
     dispatch(setProducts());
   }, []);
 
+  const navigateToProduct = (id) => {
+    history.push(`/products/${id}`);
+  };
+
   return (
-    <div>
+    <div className="products">
       {products === undefined || products === []
-        ? "No food"
+        ? "Loading..."
         : products.map((product) => {
             return (
-              <div className="allproductcontainer" key={product.id}>
-                <div className="square">
-                  <img src={product.imageURL} className="mask" />
-                  <div className="foodtitle">{product.name}</div>
-                  <p>{product.description}</p>
-
-                  <div>
-                    <Link to={`/products/${product.id}`}>
-                      <Button colorScheme="blue">View Meal</Button>
-                    </Link>
-                  </div>
-                </div>
+              <div
+                className="products__card"
+                key={product.id}
+                role="button"
+                onClick={() => navigateToProduct(product.id)}
+              >
+                <img src={product.imageURL} className="products__card-img" />
+                <Text fontSize="2xl">{product.name}</Text>
+                <Text fontSize="md" className="products__card-description">
+                  {product.description}
+                </Text>
               </div>
             );
           })}

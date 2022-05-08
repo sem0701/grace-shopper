@@ -1,13 +1,13 @@
-import React, { Component, Fragment, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { Login, Signup } from './components/AuthForm';
-import Home from './components/Home';
-import { me } from './store';
-import Team from './components/Team/Team';
-import AllProducts from './components/Products/AllProducts';
-import SingleProduct from './components/Products/SingleProduct';
-import Cart from './components/Cart/Cart';
+import React, { Component, Fragment, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { withRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Login, Signup } from "./components/AuthForm";
+import Home from "./components/Home";
+import { me } from "./store";
+import Team from "./components/Team/Team";
+import AllProducts from "./components/Products/AllProducts";
+import SingleProduct from "./components/Products/SingleProduct";
+import Cart from "./components/Cart/Cart";
 
 /**
  * COMPONENT
@@ -21,7 +21,7 @@ const Routes = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {isLoggedIn ? (
         <Switch>
           <Route path="/login" exact component={Home} />
@@ -44,7 +44,7 @@ const Routes = () => {
           <Route exact path="/cart" component={Cart} />
         </Switch>
       )}
-    </div>
+    </>
   );
 };
 
