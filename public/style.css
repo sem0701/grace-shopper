@@ -8,6 +8,7 @@
   border-bottom: 1px solid #ccc;
   height: 80px;
   position: fixed;
+  top: 0;
   z-index: 10;
 }
 
@@ -46,9 +47,12 @@
 }
 
 /* content */
+.navbar-filler {
+  height: 80px;
+}
 .content {
-  padding-top: 80px;
-  height: 100vh;
+  /* padding-top: 80px; */
+  height: calc(100vh - 80px);
 }
 
 /* auth */
