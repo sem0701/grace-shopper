@@ -6,10 +6,11 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   border-bottom: 1px solid #ccc;
-  height: 80px;
+  height: 72px;
   position: fixed;
   top: 0;
   z-index: 10;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.115); */
 }
 
 .navbar__header {
@@ -29,7 +30,7 @@
 
 .navbar__links-center {
   display: flex;
-  gap: 48px;
+  gap: 64px;
 }
 .navbar__links-item {
   font-weight: bold;
@@ -48,11 +49,11 @@
 
 /* content */
 .navbar-filler {
-  height: 80px;
+  height: 72px;
 }
 .content {
   /* padding-top: 80px; */
-  height: calc(100vh - 80px);
+  height: calc(100vh - 72px);
 }
 
 /* auth */
@@ -96,6 +97,7 @@
 
 .products__card {
   width: calc(100% / 3 - 22px);
+  max-width: 400px;
 }
 
 .products__card:hover > .products__card-img {
@@ -105,7 +107,7 @@
 .products__card-img {
   transition: all 0.15s ease-in-out;
   width: 100%;
-  aspect-ratio: 1 / 1.5;
+  aspect-ratio: 1 / 1.15;
   object-fit: cover;
   border-radius: 24px;
   margin-bottom: 24px;
@@ -113,4 +115,93 @@
 
 .products__card-description {
   margin-bottom: 16px;
+}
+
+/* singleProduct */
+.product {
+  display: flex;
+  height: 100%;
+  padding: 24px;
+}
+
+.product__img {
+  width: 50vw;
+}
+
+.product__img img {
+  object-fit: cover;
+  border-radius: 24px;
+  width: 90%;
+  height: 100%;
+}
+
+.product__right {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+}
+.product__details {
+  /* list-style-type: none; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product__details-top {
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product__details-order {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product__details-quantity {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 8px;
+}
+
+/* team */
+.about {
+  padding: 48px;
+  height: 100%;
+}
+.about__title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.about__container {
+  padding: 0 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+.about__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+.about__card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about__card img {
+  width: 75%;
+  aspect-ratio: 1 / 1;
+}
+.about__card h2 {
+  font-size: 24px;
 }

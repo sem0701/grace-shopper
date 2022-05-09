@@ -19,7 +19,6 @@ const Home = (props) => {
 
   return (
     <div>
-      {/* <h3>Welcome, {username}</h3> */}
       <div>
         <img
           className="home-img"

@@ -3,6 +3,7 @@ import { fetchSingleProduct } from "../../store/SingleProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { me } from "../../store";
 import { addCart, addToCart } from "../../store/order";
+import { Heading, Input, Button } from "@chakra-ui/react";
 
 const SingleProduct = (props) => {
   const [state, setState] = useState(1);
@@ -27,48 +28,49 @@ const SingleProduct = (props) => {
   };
 
   return (
-    <div id="container">
-      <div className="product-details">
-        <h1>{product.name}</h1>
-
-        <p className="information">{product.description}</p>
-
-        <div className="control">
-          <h3>Quantity:</h3>
-          <input
-            name="quantity"
-            type="number"
-            value={state}
-            onChange={handleChange}
-            min="1"
-            max="10"
-          />
-          <br></br>
-          <br></br>
-          <button className="btn" onClick={() => handleClick()}>
-            <span className="price">$ {product.price}</span>
-            <span className="shopping-cart">
-              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-            </span>
-            <span className="buy">Add To Cart</span>
-          </button>
-        </div>
+    <div className="product">
+      <div className="product__img">
+        <img src={product.imageURL} width="300" height="300" />
       </div>
 
-      <div className="product-image">
-        <img src={product.imageURL} width="300" height="300" />
-
-        <div className="info">
-          <h2> Description</h2>
-          <ul>
-            <li>
-              <strong>Price : </strong>$ {product.price}
-            </li>
-            <li>
-              <strong>Calories : </strong>
+      <div className="product__right">
+        <div className="product__details">
+          <div className="product__details-top">
+            <Heading className="product__details-title">{product.name}</Heading>
+            <p className="product__details-desc">{product.description}</p>
+          </div>
+          <div className="product__details-info">
+            <p className="product__details-price">
+              <strong>Price: </strong>$ {product.price}
+            </p>
+            <p className="product__details-calories">
+              <strong>Calories: </strong>
               {product.calories}
-            </li>
-          </ul>
+            </p>
+          </div>
+
+          <div className="product__details-order">
+            <div className="product__details-quantity">
+              <h3>Quantity:</h3>
+              <Input
+                name="quantity"
+                type="number"
+                value={state}
+                onChange={handleChange}
+                min="1"
+                max="10"
+                htmlSize={4}
+                width="auto"
+              />
+            </div>
+            <Button
+              colorScheme="teal"
+              className="btn"
+              onClick={() => handleClick()}
+            >
+              Add To Cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>
