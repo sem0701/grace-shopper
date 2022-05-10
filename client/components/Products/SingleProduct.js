@@ -3,7 +3,16 @@ import { fetchSingleProduct } from "../../store/SingleProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { me } from "../../store";
 import { addCart, addToCart } from "../../store/order";
-import { Heading, Input, Button } from "@chakra-ui/react";
+import {
+  Heading,
+  Input,
+  Button,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+} from "@chakra-ui/react";
 
 const SingleProduct = (props) => {
   const [state, setState] = useState(1);
@@ -21,6 +30,7 @@ const SingleProduct = (props) => {
 
   const handleClick = () => {
     dispatch(addToCart(user.id, product, state));
+    alert("Product added to cart!");
   };
 
   const handleChange = (evt) => {
@@ -52,7 +62,7 @@ const SingleProduct = (props) => {
           <div className="product__details-order">
             <div className="product__details-quantity">
               <h3>Quantity:</h3>
-              <Input
+              {/* <Input
                 name="quantity"
                 type="number"
                 value={state}
@@ -61,7 +71,20 @@ const SingleProduct = (props) => {
                 max="10"
                 htmlSize={4}
                 width="auto"
-              />
+              /> */}
+              <NumberInput
+                size="sm"
+                maxW={20}
+                defaultValue={1}
+                min={1}
+                max={10}
+              >
+                <NumberInputField onChange={handleChange} />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
             </div>
             <Button
               colorScheme="teal"

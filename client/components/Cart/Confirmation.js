@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Confirmation = () => {
   return (
-    <div className="funds-success-message-container">
-      <h1>Your order has been confirmed!!</h1>
-      <h2>thank you for shopping!</h2>
+    <div className="confirmation">
+      <h1>Your order has been confirmed!</h1>
+      <Link to="/products">
+        <Button colorScheme="teal">Go to products</Button>
+      </Link>
     </div>
   );
 };

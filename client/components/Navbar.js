@@ -26,9 +26,6 @@ const Navbar = () => {
       return accum + element.orderProduct.quantity;
     }, 0);
   }
-  console.log(cartCount);
-
-  if (!order.products) return null;
 
   return (
     <div className="navbar">
@@ -49,7 +46,11 @@ const Navbar = () => {
               Products
             </Link>
             <Link to="/cart" className="navbar__links-item">
-              Cart
+              {!order.products
+                ? "Cart"
+                : order.products.length > 0
+                ? `Cart(${cartCount})`
+                : "Cart"}
             </Link>
           </div>
 
@@ -74,7 +75,11 @@ const Navbar = () => {
               Products
             </Link>
             <Link to="/cart" className="navbar__links-item">
-              {order.products.length > 0 ? `Cart(${cartCount})` : "Cart"}
+              {!order.products
+                ? "Cart"
+                : order.products.length > 0
+                ? `Cart(${cartCount})`
+                : "Cart"}
             </Link>
           </div>
           <div className="navbar__links-right">
