@@ -52,7 +52,9 @@ const AuthForm = ({ name, displayName }) => {
                 {displayName}
               </Button>
             </div>
-            {error && error.response && <div> {error.response.data} </div>}
+            {error && error.response && (
+              <div className="auth__error"> {error.response.data} </div>
+            )}
           </form>
         </div>
       </div>

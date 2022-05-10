@@ -59,7 +59,7 @@
 /* auth */
 .auth {
   display: flex;
-  height: 100%;
+  height: calc(100vh - 72px);
 }
 .auth__pic img {
   height: 100%;
@@ -84,6 +84,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.auth__error {
+  color: red;
+  /* font-size: 12px; */
 }
 
 /* products */
