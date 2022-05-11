@@ -36,7 +36,7 @@ const Routes = () => {
       ) : (
         <Switch>
           <Route path="/" exact>
-            {Login}
+            {Home}
           </Route>
           <Route exact path="/home" component={Home} />
           <Route path="/login">{Login}</Route>
