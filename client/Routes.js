@@ -25,7 +25,7 @@ const Routes = () => {
       {isLoggedIn ? (
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/login" exact />
+          <Route path="/login" exact component={Home} />
           <Route path="/signup" exact component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/team" component={Team} />
@@ -35,9 +35,7 @@ const Routes = () => {
         </Switch>
       ) : (
         <Switch>
-          <Route path="/" exact>
-            {Home}
-          </Route>
+          <Route path="/" exact component={Home} />
           <Route exact path="/home" component={Home} />
           <Route path="/login">{Login}</Route>
           <Route path="/signup">{Signup}</Route>
