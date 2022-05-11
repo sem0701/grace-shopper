@@ -124,8 +124,8 @@
 /* singleProduct */
 .product {
   display: flex;
-  height: 100%;
-  padding: 24px;
+height: calc(100vh - 72px););
+padding: 24px;
 }
 
 .product__img {
