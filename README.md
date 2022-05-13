@@ -2,7 +2,11 @@
 
 ## How to access
 
-To view the deployed version of this app, please visit https://grace-shopper-mudkip-masters.herokuapp.com/
+To view the deployed version of this app, please visit [grace-shopper-sam.herokuapp.com](https://grace-shopper-sam.herokuapp.com/).
+
+**_If you would like to view user features without creating an account, please use our demo account:_** <br>
+Username: test <br>
+Password: test
 
 ## Customize
 
